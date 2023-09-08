@@ -1,6 +1,8 @@
-package streamapicodegroup.streamapicode.filesapi.utils;
+package streamapi.code.filesapi;
 
-import streamapicodegroup.streamapicode.model.Customer;
+import streamapi.code.constant.StreamConstant;
+import streamapi.code.model.Customer;
+import streamapi.code.utils.JsonUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,8 +11,6 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static streamapicodegroup.streamapicode.filesapi.utils.constant.StreamConstant.CUSTOMER_LIST_JSON_FILE_PATH_64KB;
-
 public class CustomersCastToMapTemplate {
 
     public static void main(String[] args) {
@@ -18,7 +18,7 @@ public class CustomersCastToMapTemplate {
 
 //        String path =  "C:\\Drive_D\\codebase\\development\\stream-api-code\\src\\main\\resources\\mock\\11164KB.json";;
         PopulateResourceFromFile populateResourceFromFile = new PopulateResourceFromFile();
-        List<Customer> customerList = populateResourceFromFile.sendEventsToTopicFromFiles(CUSTOMER_LIST_JSON_FILE_PATH_64KB);
+        List<Customer> customerList = populateResourceFromFile.sendEventsToTopicFromFiles(StreamConstant.CUSTOMER_LIST_JSON_FILE_PATH_64KB);
 //        List<Customer> customerList =  populateResourceFromFile.sendEventsToTopicFromFiles(path);
 //        customerList.forEach(System.out::println);
 

@@ -1,26 +1,40 @@
-
-package streamapicodegroup.streamapicode.model;
-
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+package streamapi.code.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.ToString;
 
+import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+@Data
+@ToString
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@Getter
-@Setter
-public class ProductDto {
+public class Customer implements Serializable {
 
-    @JsonProperty("products")
-    public List<Product> products;
+    @JsonProperty("id")
+    private String id;
+
+    @JsonProperty("name")
+    private String name;
+
+    private String email;
+    private String contactNo;
+
+    @JsonProperty("language")
+    public String language;
+
+    @JsonProperty("bio")
+    public String bio;
+
+    @JsonProperty("version")
+    public Double version;
+
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 

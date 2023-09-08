@@ -1,4 +1,4 @@
-package streamapicodegroup.streamapicode.filesapi.utils;
+package streamapi.code.filesapi;
 
 public class CheckStringContainsInString {
     public static void main(String[] args) {

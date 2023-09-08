@@ -1,28 +1,32 @@
-package streamapicodegroup.streamapicode.filesapi.utils;
+package streamapi.code.filesapi;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import streamapicodegroup.streamapicode.model.Customer;
-import streamapicodegroup.streamapicode.model.Product;
-import streamapicodegroup.streamapicode.model.ProductDto;
+import streamapi.code.model.Customer;
+import streamapi.code.model.Product;
+import streamapi.code.model.ProductDto;
+import streamapi.code.utils.JsonUtils;
+import streamapi.code.utils.LoggerInfoPrintln;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import static streamapicodegroup.streamapicode.filesapi.utils.constant.StreamConstant.ENDPOINT_PREFIX_SUBSTRING;
+import static streamapi.code.utils.LoggerInfoPrintln.prettyLogInfo;
+import static streamapi.code.constant.StreamConstant.ENDPOINT_PREFIX_SUBSTRING;
 
 public class PopulateResourceFromFile {
     public static void main(String[] args) {
         String urlString = "https://dummyjson.com/products";
         PopulateResourceFromFile populateResourceFromFile = new PopulateResourceFromFile();
         ProductDto result = populateResourceFromFile.sendProductDtoToTopicFromFiles(urlString);
-//        System.out.println(JsonUtils.generateJson(result));
-
+//        prettyLogInfo(" ", JsonUtils.generateJson(result);
         String fileName = "src/main/resources/mock/Product.json";
+
         JsonUtils.createJsonFile(fileName, result);
+        LoggerInfoPrintln.prettyLogInfo("Json File created ", fileName);
+
     }
 
     public List<Customer> sendEventsToTopicFromFiles(String urlString) {

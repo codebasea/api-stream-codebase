@@ -1,4 +1,4 @@
-package streamapicodegroup.streamapicode.model;
+package streamapi.code.model;
 
 import lombok.Getter;
 import lombok.Setter;

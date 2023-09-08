@@ -1,5 +1,5 @@
 
-package streamapicodegroup.streamapicode.model;
+package streamapi.code.model;
 
 import java.util.LinkedHashMap;
 import java.util.List;
