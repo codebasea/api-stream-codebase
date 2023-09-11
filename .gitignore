@@ -28,4 +28,5 @@
 *.iml
 *.bak
 *.cmd
+.idea
 mvnw

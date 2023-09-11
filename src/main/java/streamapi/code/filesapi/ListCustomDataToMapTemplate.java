@@ -2,6 +2,7 @@ package streamapi.code.filesapi;
 
 import streamapi.code.constant.StreamConstant;
 import streamapi.code.model.Customer;
+import streamapi.code.model.Todos;
 import streamapi.code.utils.JsonUtils;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class CustomersCastToMapTemplate {
+public class ListCustomDataToMapTemplate {
 
     public static void main(String[] args) {
         JsonUtils jsonUtils = new JsonUtils();
@@ -80,5 +81,20 @@ public class CustomersCastToMapTemplate {
         listToMapKeyAndCustomerCount.entrySet().forEach(System.out::println);
         return listToMapKeyAndCustomerCount;
     }
+
+    public static Map<Integer, Long> countTodoObjectByIdentity(List<Todos> todosList) {
+        Map<Integer, Long> listToMapKeyAndCustomerCount = todosList.stream().collect(Collectors.groupingBy(Todos::getUserId, Collectors.counting()));
+        listToMapKeyAndCustomerCount.entrySet().forEach(System.out::println);
+        return listToMapKeyAndCustomerCount;
+    }
+    public static Map<Integer, List<Todos>> groupListOfTodoObjectsIntoMap(List<Todos> todosList) {
+        Map<Integer, List<Todos>> groupByUserIdCustomers = todosList.stream().collect(Collectors.groupingBy(Todos::getUserId));
+        System.out.println("groupListOfCustomObjectsIntoMap : \n" + JsonUtils.generateJson(groupByUserIdCustomers));
+//        Map<Integer, Integer> listToMapKeyAndCustomerCount = todosList.stream().collect(Collectors.groupingBy(Todos::getUserId, Collectors.summingInt(Todos::getUserId)));
+        countTodoObjectByIdentity(todosList);
+        return groupByUserIdCustomers;
+    }
+
+
 
 }
