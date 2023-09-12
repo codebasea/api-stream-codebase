@@ -1,5 +1,8 @@
 package streamapi.code.constant;
 
+import java.util.Objects;
+import java.util.function.Predicate;
+
 public class StreamConstant {
     public static final String REQUEST_ENDPOINT_JSON_DUMMY_DATA_64_KB  = "https://microsoftedge.github.io/Demos/json-dummy-data/64KB.json";
     public static final String  ENDPOINT_PREFIX_SUBSTRING = "https://";
@@ -12,4 +15,14 @@ public class StreamConstant {
 
     public static final String  GENERATE_TODOS_JSON_FILE = "src/main/resources/mock/Todos.json";
     public static final String  REQUEST_ENDPOINT_JSON_TODOS_URL = "https://jsonplaceholder.typicode.com/todos";
+
+    /** Predicate
+     *
+     */
+    public static final Predicate<String> isNull= Objects::isNull;
+    public static final Predicate<String> nonNull= Objects::nonNull;
+    public static final Predicate<String> isEmpty= String::isEmpty;
+    public static final Predicate<String> nonEmpty= string -> !string.isEmpty();
+    public static final Predicate<String> isNullOrEmpty= isNull.or(isEmpty);
+    public static final Predicate<String> isNullAndEmpty= isNull.and(isEmpty);
 }

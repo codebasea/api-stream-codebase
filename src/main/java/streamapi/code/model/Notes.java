@@ -16,8 +16,17 @@ public class Notes {
 
     @JsonProperty("tagId")
     public Integer tagId;
+
     @JsonProperty("tagName")
     public String tagName;
+
+
+
     @JsonProperty("price")
     public Integer price;
+
+    @JsonProperty("brand")
+    public String brand;
+
+
 }
