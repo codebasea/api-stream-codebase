@@ -63,7 +63,7 @@ public class CombiningPredicates {
     }
 
     public static void whenFilterListWithCollectionOfPredicatesUsingOr_thenSuccess(){
-        System.out.println("====================whenFilterListWithCollectionOfPredicatesUsingOr_thenSuccess====");
+        System.out.println("=========2===========whenFilterListWithCollectionOfPredicatesUsingOr_thenSuccess====");
         List<String> names = Arrays.asList("Adam", "Alexander", "Aohn", "Tom");
         List<Predicate<String>> allPredicates = new ArrayList<Predicate<String>>();
 
